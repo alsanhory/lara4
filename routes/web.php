@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return 'Hello Nafisa';
-});
 
 Route::get('/hi',function(){
     return view('nafoosa');
@@ -27,3 +24,9 @@ Route::get('hi/{zool}',function($zool){
 Route::get('hi/{n}/age/{a}','TestingController@welcome');
 
 Route::get('test','TestingController@index');
+
+Route::get('ibrahem','TestingController@senndingdata');
+
+
+Route::get('/','TestingController@home');
+Route::get('about','TestingController@about');

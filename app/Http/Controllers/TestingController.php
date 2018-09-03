@@ -14,4 +14,20 @@ class TestingController extends Controller
     public function index(){
         return view('welcome');
     }
+
+    public function senndingdata(){
+        $names=["Ibrahem","hamed","maram","mohd Ali", "Dina","Eman","Arifi"];
+       
+        
+        return view('ourdata')
+        ->with('names',$names)
+        ->with('haja','its  value');
+    }
+
+    public function home(){
+        return view('homepages.home');
+    }
+    public function about(){
+        return view('homepages.about');
+    }
 }
