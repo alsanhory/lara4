@@ -30,3 +30,6 @@ Route::get('ibrahem','TestingController@senndingdata');
 
 Route::get('/','TestingController@home');
 Route::get('about','TestingController@about');
+
+Route::get('calc','TestingController@showCalc');
+Route::post('calc','TestingController@calculate');

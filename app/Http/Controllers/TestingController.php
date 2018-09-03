@@ -30,4 +30,14 @@ class TestingController extends Controller
     public function about(){
         return view('homepages.about');
     }
+
+    public function showCalc(){
+        return view('calc');
+    }
+
+    public function calculate(Request $request){
+        $sum= $request->num1 + $request->num2;
+        return $sum;
+        
+    }
 }
