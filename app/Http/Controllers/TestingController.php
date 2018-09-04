@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
 
 class TestingController extends Controller
 {
@@ -25,7 +26,10 @@ class TestingController extends Controller
     }
 
     public function home(){
-        return view('homepages.home');
+        
+        $student= Student::find(1);
+        $student->delete();
+        //return view('homepages.home');
     }
     public function about(){
         return view('homepages.about');

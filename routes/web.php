@@ -33,3 +33,8 @@ Route::get('about','TestingController@about');
 
 Route::get('calc','TestingController@showCalc');
 Route::post('calc','TestingController@calculate');
+
+
+
+Route::get('students','StudentController@showstudents');
+Route::post('students','StudentController@savestudent');
