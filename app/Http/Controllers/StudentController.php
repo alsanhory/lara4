@@ -17,7 +17,7 @@ class StudentController extends Controller
         $v=Validator::make($req->all(),[
             'name'=>'required|unique:students',
             'age'=>'required|min:2',
-            'password'=>'required|confirmed'
+           
         ])->validate();
         /*
         if($v->fails()){
@@ -30,6 +30,31 @@ class StudentController extends Controller
         $student->age=$req->age;
         $student->save();
         \Session::flash('message','Student Added');
+        return redirect('students');
+    }
+
+
+    public function deleteStudent($id){
+        $student=Student::find($id);
+        $student->delete();
+
+        \Session::flash('message','Student Deleted');
+        return redirect('students');
+    }
+
+    public function editSudent($id){
+        $student=Student::where('id',$id)->first();
+        return view('students.editstudent')->with('student',$student);
+    }
+
+    public function updateStudent(Request $request,$id){
+        
+        $student=Student::where('id','=',$id)->first();
+        $student->name=$request->name;
+        $student->age=$request->age;
+        $student->save();
+
+        \Session::flash('message','Student Updated');
         return redirect('students');
     }
 }

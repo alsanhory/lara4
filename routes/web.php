@@ -38,3 +38,6 @@ Route::post('calc','TestingController@calculate');
 
 Route::get('students','StudentController@showstudents');
 Route::post('students','StudentController@savestudent');
+Route::get('students/{id}/delete','StudentController@deleteStudent');
+Route::get('students/{id}/edit','StudentController@editSudent');
+Route::post('students/{id}/edit','StudentController@updateStudent');

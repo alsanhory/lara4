@@ -36,15 +36,9 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container">
-<div class="row">
-    <div class="panel panel-success">
-        <div class="panel-heading">Home</div>
-        <div class="panel-body">
+
+   
 @yield('content')
-        </div>
-        </div>
-    </div>
-</div>
+       
 </body>
 </html>
