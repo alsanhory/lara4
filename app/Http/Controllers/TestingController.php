@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
-
+use App\User;
 class TestingController extends Controller
 {
     public function welcome($name,$age){
@@ -43,5 +43,13 @@ class TestingController extends Controller
         $sum= $request->num1 + $request->num2;
         return $sum;
         
+    }
+
+    public function register(Request $request){
+        $user=new User;
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=\Hash::make($request->password);
+        $user->save();
     }
 }

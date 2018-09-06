@@ -36,8 +36,29 @@ Route::post('calc','TestingController@calculate');
 
 
 
-Route::get('students','StudentController@showstudents');
+Route::get('students','StudentController@showstudents')->middleware('auth');
+Route::group(array('middleware' => 'auth'), function() 
+{
+    
 Route::post('students','StudentController@savestudent');
 Route::get('students/{id}/delete','StudentController@deleteStudent');
 Route::get('students/{id}/edit','StudentController@editSudent');
 Route::post('students/{id}/edit','StudentController@updateStudent');
+});
+
+
+Route::get('/register',['uses'=>'UserController@showRegister','as'=>'register']);
+Route::post('register','TestingController@register');
+
+
+
+
+
+
+
+
+
+
+Route::get('login',['as'=>'login','uses'=>'UserController@login']);
+Route::post('login','UserController@dologin');
+Route::get('logout','UserController@logout');

@@ -29,7 +29,7 @@
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::to('/')}}">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="{{url('/about')}}">About</a></li>
-       
+        <li><a href="{{url('logout')}}">Logout</a></li>
       </ul>
      
       

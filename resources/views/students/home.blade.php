@@ -22,7 +22,7 @@
 <div class="col-sm-4">
     <div class="panel panel-info">
         <div class="panel-body">
-        {{Form::open()}}
+        {{Form::open(['files'=>'true'])}}
         <div class="input-group">
         {{Form::label('name','Name')}}
         {{Form::text('name','',['class'=>'form-control','placeholder'=>'Write Student Name'])}}
@@ -32,6 +32,9 @@
         {{Form::label('age','Age')}}
         {{Form::number('age','',['class'=>'form-control','placeholder'=>'Student Age'])}}
         </div>
+        <br/>
+        {{Form::label('mypic','Profile Picture')}}
+        {{Form::file('mypic')}}
         <br/>
         {{Form::submit('Save',['class'=>'btn btn-primary'])}}
       
@@ -46,6 +49,7 @@
     <tr>
         <th>Student</th>
         <th>Age</th>
+        <th>Image</th>
         <th>Edit</th>
         <tH>Delete</th>
     </tr>
@@ -53,6 +57,7 @@
     <tr>
         <td>{{$student->name}}</td>
         <td>{{$student->age}}</td>
+        <td><img src='imgs/{{$student->image}}' style='width:100px'/></td>
         <td><a href="{{url('students/'. $student->id. '/edit')}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
         <td><a href="{{url('students/'.$student->id.'/delete')}}" onclick="return confirm('Are you sure nigga?')"><span class="glyphicon glyphicon-trash"></span></a></td>
     </tr>
